@@ -11,8 +11,15 @@ router.get('/', function(req, res, next) {
         responseType: 'json'
       })
         .then(function (response) {
-          res.send(response.data.day)
+          let Dia = response;
+          console.log(response.data);
+         /*  res.json({ day: Dia.data.day }) */
+          res.render('dayofweek', { day: Dia.data.day });
+          
+          
         });
 });
+
+
 
 module.exports = router;
